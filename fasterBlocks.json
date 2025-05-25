@@ -1,0 +1,202 @@
+[
+  {
+    "code": "%1$s.setClass(getApplicationContext(), %3$s.class);\r\nActivityOptions %1$sOp \u003d ActivityOptions.makeCustomAnimation(%2$s.this, R.anim.fade_in, R.anim.fade_out);\nstartActivity(%1$s, %1$sOp.toBundle());\r",
+    "imports": "\n",
+    "color": "#FF381E72",
+    "name": "Fade in \u0026 Out Intent Animation",
+    "typeName": "",
+    "palette": "9",
+    "type": " ",
+    "spec": "Fade in \u0026 Out %m.intent Activity %m.activity Go Activity %m.activity "
+  },
+  {
+    "code": "%1$s.setClass(getApplicationContext(), %3$s.class);\n%1$s.putExtra(%4$s, %5$s);\r\nActivityOptions %1$sOp \u003d ActivityOptions.makeCustomAnimation(%2$s.this, R.anim.fade_in, R.anim.fade_out);\nstartActivity(%1$s, %1$sOp.toBundle());\r",
+    "imports": "",
+    "color": "#381E72",
+    "name": "Intent Animation With Kry",
+    "typeName": "",
+    "palette": "9",
+    "type": " ",
+    "spec": "Fade in \u0026 Out %m.intent Activity %m.activity Go Activity %m.activity  putExtra key %s value %s "
+  },
+  {
+    "code": "",
+    "color": "#381E72",
+    "name": "search methods",
+    "typeName": "",
+    "palette": "9",
+    "type": "h",
+    "spec": "search methods"
+  },
+  {
+    "code": "%1$s.addListenerForSingleValueEvent(new ValueEventListener() {\n    @Override\n    public void onDataChange(DataSnapshot _dataSnapshot) {\n        %2$s \u003d new ArrayList\u003c\u003e();\n        GenericTypeIndicator\u003cHashMap\u003cString, Object\u003e\u003e _ind \u003d new GenericTypeIndicator\u003cHashMap\u003cString, Object\u003e\u003e() {};\n\n        for (DataSnapshot _data : _dataSnapshot.getChildren()) {\n            HashMap\u003cString, Object\u003e _map \u003d _data.getValue(_ind);\n            if (_map !\u003d null) %2$s.add(_map);\n        }\n\n        if (%4$s.length() \u003e 0) {\n            %2$s.removeIf(item -\u003e \n                !item.containsKey(%3$s) || \n                !item.get(%3$s).toString().toLowerCase().contains(%4$s.toLowerCase())\n            );\n        }\n        %5$s\n    }\n\n    @Override\n    public void onCancelled(DatabaseError _databaseError) {\n        %6$s\n    }\n});",
+    "imports": "",
+    "color": "#381E72",
+    "name": "Firebase Searching Method Without Status",
+    "typeName": "",
+    "palette": "9",
+    "type": "e",
+    "spec": "if FS %m.FirebaseDB  with listmap %m.listMap and search with key%s  to find%s and dislplays on",
+    "spec2": "else database error"
+  },
+  {
+    "code": "%1$s.addListenerForSingleValueEvent(new ValueEventListener() {\n    @Override\n    public void onDataChange(DataSnapshot _dataSnapshot) {\n        %2$s \u003d new ArrayList\u003c\u003e();\n        GenericTypeIndicator\u003cHashMap\u003cString, Object\u003e\u003e _ind \u003d new GenericTypeIndicator\u003cHashMap\u003cString, Object\u003e\u003e() {};\n\n        for (DataSnapshot _data : _dataSnapshot.getChildren()) {\n            HashMap\u003cString, Object\u003e _map \u003d _data.getValue(_ind);\n            if (_map !\u003d null) %2$s.add(_map);\n        }\n\n        if (%4$s.length() \u003e 0) {\n            %2$s.removeIf(item -\u003e \n                !item.containsKey(%3$s) || \n                !item.get(%3$s).toString().toLowerCase().contains(%4$s.toLowerCase())\n            );\n        }\n\n        boolean isListEmpty \u003d %2$s.isEmpty();\n        %5$s.setVisibility(isListEmpty ? View.VISIBLE : View.GONE);\n        %6$s.setVisibility(isListEmpty ? View.GONE : View.VISIBLE);\n\n        if (!isListEmpty) {\n            %7$s\n        }\n    }\n\n    @Override\n    public void onCancelled(DatabaseError _databaseError) {\n%8$s\n    }\n});",
+    "imports": "",
+    "color": "#381E72",
+    "name": "Firebase Searching Method With Status",
+    "typeName": "",
+    "palette": "9",
+    "type": "e",
+    "spec": "if FS With Status %m.FirebaseDB  with listmap %m.listMap and search with key%s  to find%s Finded Status Textview id %m.textview Result Listview id %m.view  and dislplays on",
+    "spec2": "else database error"
+  },
+  {
+    "code": "%1$s.addListenerForSingleValueEvent(new ValueEventListener() {\n    @Override\n    public void onDataChange(DataSnapshot _dataSnapshot) {\n        %2$s \u003d new ArrayList\u003c\u003e();\n        GenericTypeIndicator\u003cHashMap\u003cString, Object\u003e\u003e _ind \u003d new GenericTypeIndicator\u003cHashMap\u003cString, Object\u003e\u003e() {};\n        String activityType \u003d getIntent().getStringExtra(%7$s);\n\n        for (DataSnapshot _data : _dataSnapshot.getChildren()) {\n            HashMap\u003cString, Object\u003e _map \u003d _data.getValue(_ind);\n            if (_map !\u003d null \u0026\u0026 _map.containsKey(%9$s)) {\n                if (%8$s.equals(activityType) \u0026\u0026 \n                    %10$s.equals(_map.get(%9$s).toString())) {\n                    %2$s.add(_map);\n                }\n            }\n        }\n        if (%4$s.trim().length() \u003e 0) {\n            %2$s.removeIf(item -\u003e \n                !item.containsKey(%3$s) || \n                !item.get(%3$s).toString().toLowerCase().contains(%4$s.trim().toLowerCase())\n            );\n        }\n\n        boolean isListEmpty \u003d %2$s.isEmpty();\n        %5$s.setVisibility(isListEmpty ? View.VISIBLE : View.GONE);\n        %6$s.setVisibility(isListEmpty ? View.GONE : View.VISIBLE);\n\n        if (!isListEmpty) {\n            %11$s\n        }\n    }\n\n    @Override\n    public void onCancelled(DatabaseError _databaseError) {\n        %12$s\n    }\n});",
+    "imports": "",
+    "color": "#381E72",
+    "name": "Firebase Search With Status + Filter+int",
+    "typeName": "",
+    "palette": "9",
+    "type": "e",
+    "spec": "if FS With Status + intent filter + child filter %m.FirebaseDB  with listmap %m.listMap and search with key%s  to find%s Finded Status Textview id %m.textview Result Listview id %m.view Intent extraKey %s Intent equalsValue %s ChildKey %s ChildKey equalsValue %s and dislplays on",
+    "spec2": "else database error"
+  },
+  {
+    "code": "ObjectAnimator scaleX \u003d ObjectAnimator.ofFloat(%1$s, View.SCALE_X, 0.3f, 1f);\nObjectAnimator scaleY \u003d ObjectAnimator.ofFloat(%1$s, View.SCALE_Y, 0.3f, 1f);\nAnimatorSet animatorSet \u003d new AnimatorSet();\nanimatorSet.playTogether(scaleX, scaleY);\nanimatorSet.setDuration(400);\nanimatorSet.start();",
+    "imports": "",
+    "color": "#381E72",
+    "name": "recyclerView, ListView, \u0026 GridView Anim",
+    "typeName": "",
+    "palette": "9",
+    "type": " ",
+    "spec": "recyclerView, ListView, \u0026 GridView Anim %m.view "
+  },
+  {
+    "code": "// Start: %1$s\n%2$s\n//End: %1$s",
+    "imports": "",
+    "color": "#381E72",
+    "name": "Lesson introduction ",
+    "typeName": "",
+    "palette": "9",
+    "type": "c",
+    "spec": "This Part Is: %s"
+  },
+  {
+    "code": "%1$s.isEmpty()",
+    "imports": "",
+    "color": "#381E72",
+    "name": "IsEmpty",
+    "typeName": "",
+    "palette": "9",
+    "type": "b",
+    "spec": "%s IsEmpty"
+  },
+  {
+    "imports": "androidx.activity.OnBackPressedCallback",
+    "code": "getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {\n@Override\npublic void handleOnBackPressed() {\n%1$s\n}\n});\r",
+    "color": "#381E72",
+    "name": "Androidx OnBackPressedCallback",
+    "typeName": "",
+    "palette": "9",
+    "type": "c",
+    "spec": "Androidx OnBackPressedCallback"
+  },
+  {
+    "code": "/*-JX4UA2y_f1OckjjvxWI.bQwRei-sLEsBmds7ArsRfi0xSFEP3Php97kjdMCs5ed\n\u003e[\"\tpublic void onClick(View _v) {\r\\n\t\t\t\tonBackPressed();\r\\n\t\t\t}\"]\n\u003e0\n\u003e0\n\u003e0\n\u003efind-replace\n\tpublic void onClick(View _v) {\r\n\t\t\t\tgetOnBackPressedDispatcher().onBackPressed();\r\n\t\t\t}\nBpWI8U4flOpx8Ke66QTlZYBA_NEusQ7BN-D0wvZs7ArsRfi0.EP3Php97kjdMCs*/",
+    "imports": "",
+    "color": "#381E72",
+    "name": "Toolbar OnBackPressedDispatcher",
+    "typeName": "",
+    "palette": "9",
+    "type": " ",
+    "spec": "Toolbar OnBackPressedDispatcher"
+  },
+  {
+    "code": "final float %1$s \u003d 0.90f;\nnew LinearSnapHelper().attachToRecyclerView(%2$s);\n%2$s.addOnScrollListener(new RecyclerView.OnScrollListener() {\n    @Override\n    public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {\n        super.onScrolled(recyclerView, dx, dy);\n        int recyclerCenterX \u003d recyclerView.getWidth() / 2;\n        for (int i \u003d 0; i \u003c recyclerView.getChildCount(); i++) {\n            View child \u003d recyclerView.getChildAt(i);\n            int childCenterX \u003d (child.getLeft() + child.getRight()) / 2;\n            int distanceFromCenter \u003d Math.abs(recyclerCenterX - childCenterX);\n            float scale \u003d 1 - ((float) distanceFromCenter / recyclerCenterX) * (1 - %1$s);\n            child.setScaleX(scale);\n            child.setScaleY(scale);\n        }\n    }\n});\n%2$s.setOnFlingListener(new RecyclerView.OnFlingListener() {\n    @Override\n    public boolean onFling(int velocityX, int velocityY) {\n        int adjustedVelocityX \u003d (int) (velocityX * 0.5f);\n        return %2$s.fling(adjustedVelocityX, velocityY);\n    }\n});",
+    "imports": "",
+    "color": "#381E72",
+    "name": "RecyclerView slider animation",
+    "typeName": "",
+    "palette": "9",
+    "type": " ",
+    "spec": "RecyclerView slider animation anim id %s.inputOnly recyclerview id %m.view"
+  },
+  {
+    "code": "if (Build.VERSION.SDK_INT \u003c\u003d Build.VERSION_CODES.%1$s) {\n%2$s\n}",
+    "color": "#381E72",
+    "name": "Android lower checker",
+    "typeName": "",
+    "palette": "9",
+    "type": "c",
+    "spec": "Android Running to Lower Version - Version code %s.inputOnly "
+  },
+  {
+    "imports": "me.everything.android.ui.overscroll.OverScrollDecoratorHelper",
+    "code": "OverScrollDecoratorHelper.setUpOverScroll(%1$s, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL);",
+    "color": "#381E72",
+    "name": "Horizontal RecyclerView Over Scroll",
+    "typeName": "",
+    "palette": "9",
+    "type": " ",
+    "spec": "Horizontal RecyclerView Over Scroll - Id %m.view"
+  },
+  {
+    "code": "// hide code for %1$s",
+    "imports": "",
+    "color": "#381E72",
+    "name": "hide code",
+    "typeName": "",
+    "palette": "9",
+    "type": "c",
+    "spec": "Hide code for %s"
+  },
+  {
+    "code": "%1$s.startsWith(%2$s)",
+    "imports": "",
+    "color": "#381E72",
+    "name": "StartWith",
+    "typeName": "",
+    "palette": "9",
+    "type": "b",
+    "spec": "%s StartWith %s"
+  },
+  {
+    "code": "%1$s.endsWith(%2$s)",
+    "imports": "",
+    "color": "#381E72",
+    "name": "EndsWith",
+    "typeName": "",
+    "palette": "9",
+    "type": "b",
+    "spec": "%s EndsWith %s"
+  },
+  {
+    "code": "%2$s.clear();\nfor (HashMap\u003cString, Object\u003e item : %1$s) {\n    if (%4$s.equals(String.valueOf(item.get(%3$s))) \u0026\u0026\n        %6$s.equals(String.valueOf(item.get(%5$s)))) {\n        %2$s.add(item);\n    }\n}",
+    "imports": "",
+    "color": "#381E72",
+    "name": "Filter 2 data using list map",
+    "typeName": "",
+    "palette": "9",
+    "type": " ",
+    "spec": "Filter 2 data using list map - Data %m.listMap Filter Map %m.listMap Key %s value %s key %s value %s"
+  },
+  {
+    "code": "}\n%1$s",
+    "color": "#381E72",
+    "name": "Code outside of on create",
+    "typeName": "",
+    "palette": "9",
+    "type": "c",
+    "spec": "Code outside of on create"
+  },
+  {
+    "code": "/*-JX4UA2y_f1OckjjvxWI.bQwRei-sLEsBmds7ArsRfi0xSFEP3Php97kjdMCs5ed\n\u003e[\"public class %1$s extends AppCompatActivity {\"]\n\u003e0\n\u003e0\n\u003e0\n\u003eadd\n    @Override\n    protected void attachBaseContext(Context newBase) {\n        Locale locale \u003d new Locale(\"en\");\n        Locale.setDefault(locale);\n        Configuration config \u003d new Configuration();\n        config.setLocale(locale);\n        Context context \u003d newBase.createConfigurationContext(config);\n        super.attachBaseContext(context);\n    }\nBpWI8U4flOpx8Ke66QTlZYBA_NEusQ7BN-D0wvZs7ArsRfi0.EP3Php97kjdMCs*/",
+    "imports": "",
+    "color": "#381E72",
+    "name": "forceEnglishLocale",
+    "typeName": "",
+    "palette": "9",
+    "type": " ",
+    "spec": "forceEnglishLocale activity name %m.activity"
+  }
+]

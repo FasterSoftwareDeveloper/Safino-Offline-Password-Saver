@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=your_demo_video_link" target="_blank">
+  <a href="https://youtu.be/dB9tdkf1o7s" target="_blank">
     <img src="thumbnail.png" alt="Safino Demo" width="320"/>
   </a>
 </p>
@@ -86,7 +86,7 @@ It’s also a powerful open-source foundation for:
 ## 🔗 Demo
 
 Click the image at the top or  
-▶️ [Watch on YouTube](https://www.youtube.com/watch?v=your_demo_video_link)
+▶️ [Watch on YouTube](https://youtu.be/dB9tdkf1o7s)
 
 ---
 

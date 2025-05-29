@@ -16,6 +16,16 @@
 
 ---
 
+# 🚀 Safino Android Studio Source Code is Now Available!
+
+**Get the full source code for Safino, the password saver app — built with Material 3, Sketchware Pro, and Android Studio!**
+
+👉 [**Click here to view the Android Studio**](https://github.com/FasterSoftwareDeveloper/Safino-Offline-Password-Saver-Android-Studio)
+
+**Don't forget to ⭐ the repo if you find it helpful!**
+
+---
+
 ## ✨ Features at a Glance
 
 - 🚀 **Splash Screen** with API integration  

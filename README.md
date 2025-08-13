@@ -127,14 +127,11 @@ If you love Safino and want to support future projects:
 
 ## 📄 License
 
-This project is **free to use, edit, and distribute** for:
+- **Open & Free (No Restrictions):**  
+  This project is released as **CC0 1.0 Universal**. You are free to use, modify, and share it for any purpose, including commercial projects—no attribution required, no restrictions.
 
-- ✅ Personal use  
-- ✅ Educational use  
-- ✅ Commercial use of the APK  
-- ✅ Full freedom to reuse any Java code or class without restrictions
-
-Just follow the policy: don’t reshare the `.swb` file, especially on YouTube.
+- **Third-Party Libraries:**  
+  This project may include third-party libraries. Each library is subject to its own license. Please review their licenses if you plan to use them.
 
 ---
 
